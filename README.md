@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+# ♟️ Mohamed Alaraby Chess AI Coach
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Project Status](https://img.shields.io/badge/Status-Active-success)
+![Frontend](https://img.shields.io/badge/Frontend-React%20%7C%20TypeScript%20%7C%20Tailwind-blue)
+![Backend](https://img.shields.io/badge/Backend-FastAPI%20%7C%20Python-green)
+![AI](https://img.shields.io/badge/AI-Stockfish%20%7C%20Ollama%20(Llama%203)-purple)
 
-Currently, two official plugins are available:
+Welcome to the **Mohamed Alaraby Chess AI**, an interactive, full-stack web application designed to help chess players analyze their games with the precision of a grandmaster and the encouraging voice of a personal coach. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+By combining the raw calculating power of **Stockfish** with the natural language capabilities of **Local LLMs (Llama 3)**, this application turns raw chess data into actionable, easy-to-understand advice.
 
-## React Compiler
+## ✨ Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **🎮 Cross-Platform Fetching**: Automatically download your match history by simply entering a Chess.com username or pasting a Lichess match URL.
+* **🧠 Dual-Engine AI**: 
+    * **Stockfish 16**: Calculates centipawn loss, best moves, and positional evaluation.
+    * **Llama 3 (via Ollama)**: Translates Stockfish's cold numbers into conversational, encouraging coaching tips.
+* **💬 Interactive Chat Interface**: Don't just look at the best move—ask the AI questions! "Why is this a blunder?" or "What do you recommend here?" and get context-aware answers.
+* **📊 Post-Game Dashboard**: A beautifully designed, gamified summary page featuring a dynamic Accuracy Ring, Blunder/Mistake trackers, and a Key Moments timeline.
+* **🕹️ Seamless Board Navigation**: Play through your entire game history frame-by-frame, or branch off and try new moves to see how the AI reacts.
 
-## Expanding the ESLint configuration
+## 🏗️ System Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The application is split into a modern React frontend and a high-performance Python backend.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* **Frontend**: React, TypeScript, Tailwind CSS, React Router, `chess.js`, and Lucide Icons.
+* **Backend**: Python, FastAPI (for rapid API routing), `stockfish` (Python wrapper), `langchain`, and `requests` (for web scraping APIs).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Follow these instructions to get a copy of the project up and running on your local machine.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+You will need the following installed on your system:
+* [Node.js & npm](https://nodejs.org/)
+* [Python 3.9+](https://www.python.org/)
+* [Ollama](https://ollama.com/) (For running Llama 3 locally)
+* **Stockfish**: Download the `stockfish.exe` engine and place it in the `Backend/` directory.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 1. Setup the AI Brain (Ollama)
+Open your terminal and pull the Llama 3 model (this runs the AI locally on your machine):
+```bash
+ollama run llama3
