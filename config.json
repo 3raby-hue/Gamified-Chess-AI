@@ -1,0 +1,26 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "src": "src/pages/Home.tsx"
+    },
+    {
+      "path": "/analysis",
+      "src": "src/pages/Analysis.tsx"
+    },
+    {
+      "path": "/summary",
+      "src": "src/pages/Summary.tsx"
+    }
+  ],
+  "components": [
+    { "name": "Header", "src": "src/components/Header.tsx" },
+    { "name": "GameImportCard", "src": "src/components/GameImportCard.tsx" },
+    { "name": "RecentGamesList", "src": "src/components/RecentGamesList.tsx" },
+    { "name": "ChessBoard", "src": "src/components/ChessBoard.tsx" },
+    { "name": "ChatInterface", "src": "src/components/ChatInterface.tsx" },
+    { "name": "CircularAccuracyRing", "src": "src/components/CircularAccuracyRing.tsx" },
+    { "name": "MetricCard", "src": "src/components/MetricCard.tsx" },
+    { "name": "KeyMomentCard", "src": "src/components/KeyMomentCard.tsx" }
+  ]
+}
